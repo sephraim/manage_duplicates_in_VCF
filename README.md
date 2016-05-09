@@ -4,9 +4,15 @@
 
 View and remove duplicate variants in a VCF file. A duplicate variant is when multiple records have the same CHROM, POS, REF, and ALT.
 
-## Example usage
+This repo contains 3 scripts:
 
-There are 3 scripts available for managing duplicates, each of which produce slightly different output. All scripts can handle *.vcf*, *.vcf.gz*, *.bcf*, and *.bcf.gz* files as input.
+- ***find\_duplicate\_variants.sh***: View variants with matching CHROM, POS, REF, and ALT
+- ***remove\_duplicate\_variants.sh***: Automatically de-duplicate VCF records
+- ***remove\_lines\_from\_VCF.sh***: Manually de-duplicate VCF records by specifying which records to remove
+
+All scripts can accept *.vcf*, *.vcf.gz*, *.bcf*, or *.bcf.gz* files as input.
+
+## Example usage
 
 For the examples below, let's say we have a VCF file called *with_dups.vcf.gz* that contains both duplicate and non-duplicate variants:
 
