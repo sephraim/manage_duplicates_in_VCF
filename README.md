@@ -76,6 +76,19 @@ Now use the *remove\_lines\_from\_VCF.sh* script to remove the records specified
     10      73269880  ID444444  G    CA   .     .       COMMENTS=Duplicate_2A
     10      73269885  ID555555  C    G    .     .       COMMENTS=Not_a_duplicate
 
+#### Why not use `bcftools isec`?
+
+BCFtools features a command called `isec` that is very similar to the *remove\_lines\_from\_VCF.sh* script. It allows you to output variants that are in one VCF file but not in the other. This is useful if you would like to specify which variants you want to remove in a separate VCF file. For example:
+
+    bcftools isec -C -w1 -Ov with_dups.vcf.gz variants2remove.vcf.gz > modified.vcf
+
+However, there are a couple subtle differences between `isec` and *remove\_lines\_from\_VCF.sh*:
+
+- `isec` matches on the individual **variant** (i.e. CHROM, POS, REF, and ALT only), but *remove\_lines\_from\_VCF.sh* matches on the entire VCF **record**
+- The above `isec` command will only remove the **first** match, but *remove\_lines\_from\_VCF.sh* will remove **all** matches; this is only an issue if your VCF file contains duplicate variants
+
+In short, `isec` can be very useful for some circumstances, but *remove\_lines\_from\_VCF.sh* should be used for managing duplicate variants.
+
 ## Requirements
 
 `bcftools` must be in your `$PATH` (download it [here](https://github.com/samtools/bcftools/releases))
