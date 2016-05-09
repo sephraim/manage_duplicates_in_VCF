@@ -13,7 +13,7 @@
 #  txt (exactly like a VCF file, but with no header lines)
 #
 # Example usage:
-#   ./find_duplicates.sh my.vcf.gz > duplicate_lines.txt
+#   ./find_duplicate_variants.sh my.vcf.gz > duplicate_lines.txt
 ##
 
 vcf="$1"

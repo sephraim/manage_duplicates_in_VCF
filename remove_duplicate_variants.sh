@@ -14,7 +14,7 @@
 #  vcf
 #
 # Example usage:
-#   ./remove_duplicates.sh dups.[vcf|bcf][.gz] > nodups.vcf
+#   ./remove_duplicate_variants.sh dups.[vcf|bcf][.gz] > nodups.vcf
 ##
 
 myvcf="$1"
